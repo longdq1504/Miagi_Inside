@@ -1,0 +1,116 @@
+React is a JavaScript library for building user interfaces.
+
++ Call API
++ Login form
+
+A React component should use props to store information that can be changed, but can only be changed by a different component.
+
+A React component should use state to store information that the component itself can change.
+
+A <Parent /> is going to pass a prop to a <Child />.
+
+That means that a <Parent /> is going to render a <Child />. 
+Rendering is the only way for a component to pass props to another component.
+
+1. Life of components: Mounting, Updating, Unmounting
+
+ a. Mouting: A component "mounts" when it renders for the first time. Mounting means putting elements into the DOM.
+  + componentWillMount() 
+  + render()
+  + componentDidMount()
+	If your React app uses AJAX to fetch initial data from an API, then componentDidMount is the place to make that AJAX call. More generally, componentDidMount is a good place to connect a React app to external applications, such as web APIs or JavaScript frameworks. componentDidMount is also the place to set timers using setTimeout or setInterval.
+
+ b. Updating: when a component is updated. A component is updated whenever there is a change in the component's state or props.
+  + componentWillReceiveProps()
+  + shouldComponentUpdate()
+  + componentWillUpdate()
+	You cannot call this.setState from the body of componentWillUpdate! Which begs the question, why would you use it?
+
+The main purpose of componentWillUpdate is to interact with things outside of the React architecture. If you need to do non-React setup before a component renders, such as checking the window size or interacting with an API, then componentWillUpdate is a good place to do that.
+
+  + render()
+  + componentDidUpdate()
+
+ c. Unmounting: when a component is removed from DOM
+  + componentWillUnmount() 
+
+
+2. Props
+Props are arguments passed into React components.
+Props are passed to components via HTML attributes.
+Another way of handling component properties is by using props.
+Props are like function arguments, and you send them into the component as attributes.
+
+Pass data: 
+
+3. JSX 
+JSX stands for JavaScript XML.
+JSX allows us to write HTML in React.
+JSX makes it easier to write and add HTML in React.
+
+4. Class Component & Function Component
+constructor(), state
+In React, component properties should be kept in an object called state.
++ component in component
++ components in files
+
+5. State
+
+  changeColor = () => {
+    this.setState({color: "blue"});
+  }
+  
+  onClick={this.changeColor}
+
+
+
+
+
+==============Install NodeJS lts version 12.16.1
+https://phoenixnap.com/kb/install-latest-node-js-and-nmp-on-ubuntu
+==============
+
+Nodejs là một nền tảng (platform)
+
+NPM: Node Package Manager, công cụ quản lí thư viện lập trình của nodejs. Khi cài đặt Nodejs, NPM sẽ được cài đặt theo.
+NPM can also update itself and NodeJS
+
++ Kết nối MySQL
+
++ Install nodejs & npm
+
+  $ sudo apt update
+  $ sudo apt install nodejs
+  $ sudo apt install npm
+
+------------------------
+Check version of nodejs: $ node -v(máy mình hiện tại 8.10.0)
+Check version of npm: $ npm -v (máy mình hiện tại 3.5.2)
+Uninstall npm package & NodeJS: $ sudo apt remove nodejs npm
+
+If you wish to uninstall NodeJS from your Ubuntu system, run the command below.
+  $ sudo apt-get remove nodejs
+The command will remove the package but retain the configuration files.
+
+To remove both the package and the configuration files run:
+  $ sudo apt-get purge nodejs
+
+As a final step, you can run the command below to remove any unused files and free up the disk space
+  $ sudo apt-get autoremove
+------------------------
++ Update NPM to lastest version
+  $ sudo npm install npm@latest -g (lúc này máy mình upgrade thành 6.14.3)
++ Install n package which will update our NodeJS
+  $ sudo npm install -g n 
++ Update NodeJS using n package
+  $ sudo n latest
++ Install the latest LTS version
+  $ sudo lts latest (lts: long term support)
+
+---------------------------- error when npm start
+https://stackoverflow.com/questions/42308879/npm-err-code-elifecycle
+----------------------------
+
+Installing Node.js and npm using NVM
+NVM (Node Version Manager) is a bash script used to manage multiple active Node.js versions. With NVM you can install and uninstall any specific Node.js version you want to use or test.
+

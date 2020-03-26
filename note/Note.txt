@@ -1,0 +1,34 @@
+sudo npm start
+
+React Redux requires React 16.8.3 or later.
+  (react-native -v)
+npm install --save react-redux
+npm install --save redux
+npm install redux-react-session --save
+npm install --save react-router
+npm install --save redux-thunk
+
+--v4--
+lsof -i:3000 
+kill -9 [PID] 
+npm install --save react-router-dom
+
+Callback 
+	(https://anonystick.com/blog-developer/series-callback-javascript-phan-1-gioi-thieu-callbacks-hDNiSkWf.jsx)
+
+Promise (https://developer.mozilla.org/vi/docs/Web/JavaScript/Guide/Using_promises)
+Promise là một đối tượng thể hiện cho sự hoàn thành hoặc thất bại của một tiến trình bất đồng bộ.
+
+React-Redux-API
+https://dev.to/markusclaus/fetching-data-from-an-api-using-reactredux-55ao
+https://viblo.asia/p/call-rest-api-trong-react-native-source-code-va-demo-eW65GR69lDO
+https://stackoverflow.com/questions/38742334/what-is-right-way-to-do-api-call-in-react-js
+https://blog.hellojs.org/fetching-api-data-with-react-js-460fe8bbf8f2
+======================================================================
+Redux https://redux.js.org/advanced/async-actions
+
+        <PrivateRoute exact path="/" component={Home} authenticated={authenticated}/>
+        <Route path="/login" component={Login}/>
+
+<PrivateRoute exact path="/" component={authenticated => <Home {...authenticated} />} />
+        <Route render ={()=> < Login />} path="/login" /> 

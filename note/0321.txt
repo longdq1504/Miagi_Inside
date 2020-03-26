@@ -1,0 +1,100 @@
+AngularJS
+
+I. A better solution is to read the live data from a server. We can do this by creating a service.
+
++ create service 
++ in controller, use service to fetch data from server
+
+standalone: doc lap
+
+==================SERVICE
+
+Why are services useful? Instead of filling the controller with code to fetch weather data from a server, it’s better to move this independent logic into a service so that it can be reused by other parts of the app.
+
+
++ Directives are a way to make standalone UI components, like <app-info>
+
++ Services are a way to make standalone communication logic, like forecast which fetches weather data from a server
+
++ Routes are a way to manage apps containing more views.
+
+==================ROUTING
+
+Why are routes useful? Instead of filling a single view with more code than needed, routes let us map URLs to self-contained controllers and templates. Furthermore, now that the app has URLs, users can easily bookmark and share the app’s pages.
+
+1. app.js 
+app.config  $routeProvider-> routes
+
+2. HomeController + Photo service (app.factory) -> fetch data -> home.html
+PhotoController $routeParams
+
+
+photo.js
+
+app.factory('photos', ['$http', function($http) {
+  return $http.get('https://s3.amazonaws.com/codecademy-content/courses/ltp4/photos-api/photos.json')
+         .success(function(data) {
+           return data;
+         })
+         .error(function(data) {
+           return data;
+         });
+}]);
+
+=======================================
+ng-click
+ng-repeat
+ng-model ng-bind {{ }}
+ng-if="$odd"/"even"
+ng-disabled
+ng-show (= expression)
+ng-hide
+ng-switch ng-switch-when
+
+
++ INPUT STATE
+Input fields have the following states:
+$untouched The field has not been touched yet
+$touched The field has been touched
+$pristine The field has not been modified yet
+$dirty The field has been modified
+$invalid The field content is not valid
+$valid The field content is valid
+
+
++ FORM STATE
+Forms have the following states:
+$pristine No fields have been modified yet
+$dirty One or more have been modified
+$invalid The form content is not valid
+$valid The form content is valid
+$submitted The form is submitted
+
++ SERVICE: $location, $http, $timeout, $interval
+
++ ANGULAR API
+angular.lowercase()
+angular.uppercase()
+angular.isString()
+angular.isNumber()
+
++ ANGULARJS INCLUDES
+ ---> Include Cross Domains
+
++ Angular Animations
+  ngAnimate
++ AngularJS Routing ()
+  ngRoute
+  Applications can only have one ng-view directive, and this will be the placeholder for all views provided by the route.
+
+Because the ng-repeat directive repeats a block of HTML code for each item in an array, it can be used to create options in a dropdown list, but the ng-options directive was made especially for filling a dropdown list with options, and has at least one important advantage:
+
+Dropdowns made with ng-options allows the selected value to be an object, while dropdowns made from ng-repeat has to be a string.
+========================================
+
+Root Scope
+All applications have a $rootScope which is the scope created on the HTML element that contains the ng-app directive.
+
+The rootScope is available in the entire application.
+
+If a variable has the same name in both the current scope and in the rootScope, the application uses the one in the current scope.

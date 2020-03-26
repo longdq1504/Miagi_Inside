@@ -1,0 +1,36 @@
+Redux cơ bản:
+
++  d3 -> store -> c3 (state)
++  https://viblo.asia/p/redux-co-ban-m68Z00JdZkG
++  https://viblo.asia/p/redux-la-gi-va-tai-sao-can-dung-redux-RnB5pGJJlPG (login)
++  https://viblo.asia/p/tung-buoc-build-mot-ung-dung-react-redux-Eb85oEO8Z2G (từng bước build react-redux)
+
++  https://github.com/bernabe9/redux-react-session (Redux React Session Projects)
++  https://github.com/cornflourblue/react-redux-registration-login-example (Redux React Session Projects) --> https://jasonwatmore.com/post/2017/09/16/react-redux-user-registration-and-login-tutorial-example
+
++  action -> reducer -> store -> view
+
++  bindActionCreators from 'redux'
++  sessionActions from '../actions/sessionActions'
+
+https://viblo.asia/p/phan-tich-connect-va-mapstatetoprops-trong-redux-L4x5xN0rZBM
+
+const mapDispatch = (dispatch) => {
+  return {
+    actions: bindActionCreators(sessionActions, dispatch)
+  };
+};
+
+(alias) bindActionCreators<typeof sessionActions>(actionCreators: typeof sessionActions, dispatch: Dispatch<any>): typeof sessionActions (+3 overloads)
+import bindActionCreators
+Turns an object whose values are action creators, into an object with the same keys, but with every function wrapped into a dispatch call so they may be invoked directly. This is just a convenience method, as you can call store.dispatch(MyActionCreators.doSomething()) yourself just fine.
+
+For convenience, you can also pass a single function as the first argument, and get a function in return.
+
+@param actionCreator
+An object whose values are action creator functions. One handy way to obtain it is to use ES6 import * as syntax. You may also pass a single function.
+
+@param dispatch — The dispatch function available on your Redux store.
+
+@returns
+The object mimicking the original object, but with every action creator wrapped into the dispatch call. If you passed a function as actionCreator, the return value will also be a single function.

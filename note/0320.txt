@@ -1,0 +1,227 @@
+(slack)
+	miagi-web-team.slack.com
+(redmine)	
+	http://192.168.0.66:30002/login
+(mail)
+	http://mail.miagi-so.net/
+GitKraken
+	suncheer-dev@cloco.co.jp
+	miagi0606
+Rabbit
+chrome://inspect/#devices
+codecademy
+	longdq08@gmail.com
+	long33345
+
+(Giao diện của khách hàng)
+https://docs.google.com/presentation/d/171sVDlADtfZXIvobJPKdwYj-v_z3GZCYGF48YCty2No/edit#slide=id.g6520131485_0_0
+	suncheer-dev@cloco.co.jp 
+	miagi20190606
+
+Suncheer app
+	hoaivobk@gmail.com
+	miagi0606
+
+
+======================================================================
+
+cordova 9.0.0
+recover.sh
+(cordova support) https://cordova.apache.org/docs/en/dev/guide/platforms/android/index.html
+
+== upgrade Cordova-Android version
+-> project directory 
+
+https://cordova.apache.org/docs/en/latest/platform_plugin_versioning_ref/
+
+cordova platform ls
+cordova platform remove android
+cordova platform add android@8.0.0
+== install/uninstall Cordova
+$ sudo npm uninstall cordova -g
+$ npm cache clean --force
+$ sudo npm install -g cordova
+
+$ bash ./recover.sh dev
+recover.sh (cordova platform add android@8.0.0/6.4.0)
+
+====================================================================
+
+1. Error: Requirements check failed for JDK 1.8 or greater
+
+a/ Complety uninstall Java
+	$ sudo apt-get purge --auto-remove openjdk*
+
+b/ INSTALL JAVA (https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04)
+	$ sudo apt install openjdk-8-jre-headless
+	$ java -version
+	$ sudo apt install openjdk-8-jdk
+	$ javac -version
+
+2. Error: Could not find an installed version of Gradle either in Android Studio,
+or on your system to install the gradle wrapper. Please include gradle 
+in your path, or install Android Studio
+	$ sudo apt-get install gradle
+
+export ANDROID_HOME=/home/longdq08/Android/Sdk
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+
+(dev/kvm is not found)
+https://askubuntu.com/questions/564910/kvm-is-not-installed-on-this-machine-dev-kvm-is-missing
+https://www.linuxtechi.com/install-configure-kvm-ubuntu-18-04-server/
+	1. sudo apt-get install qemu-kvm
+	2. Enable Virtualization Technology in BIOS
+	3. sudo kvm-ok
+
+Checking the license for package Android SDK Platform 28 in /home/longdq08/Android/Sdk/licenses
+Warning: License for package Android SDK Platform 28 not accepted.
+
+https://stackoverflow.com/questions/38096225/automatically-accept-all-sdk-licences/41978530
+
+http://yallalabs.com/devops/how-to-install-gradle-ubuntu-18-04-ubuntu-16-04/
+$ sudo vi /etc/profile.d/gradle.sh
+export GRADLE_HOME=/opt/gradle/gradle-5.2.1
+export PATH=${GRADLE_HOME}/bin:${PATH}
+
+(SDK directory)
+/home/longdq08/Android/Sdk (SDK directory)
+
+(Update: ANDROID_HOME is deprecated, ANDROID_SDK_ROOT is now the correct variable)
+https://stackoverflow.com/questions/39760172/you-have-not-accepted-the-license-agreements-of-the-following-sdk-components
+
+GItKraken
+
+(Error cordova build android)
++ Error: Could not find an installed version of Gradle either in Android Studio,
+or on your system to install the gradle wrapper. Please include gradle 
+in your path, or install Android Studio
+
+(Ip address)
++ ip addr show
+192.168.0.172/24
+
+=================================================
+
+https://sequel.jeremyevans.net/documentation.html
+
+http://padrinorb.com/guides/application-helpers/render-helpers/
+
+get :new -> new.erb -> post :confirm -> confirm.erb -> post :create
+
+
+
++ p mt(:html_content) # "コンテンツ"  ==OK
+
++ flash: p pat(:create_success, model: mt(:html_content)) # "コンテンツ は正常に作成されました。", :create_success
+
++ pat: padrino admin translate (ja.yml ko co 作成)
+
++ mt: model translate
+
++ mat: model attribute translate
+
+
+
+flash[:success] = pat(:update_success, model: mt(:html_content), id: "#{params[:id]}"), :update_success duoc su dung hay dinh nghia o dau.
+
+flash[:success] = pat(:delete_success, model: mt(:html_content), id: "#{params[:id]}"), :delete_success duoc su dung o dau hay dinh nghia o dau.
+
+
+
++ validate trong model
+
++ html_contents model     (%i %w cu phap)
+   LIKE_SEARCH_COLUMNS = %i(title)
+
+   EQUAL_SEARCH_COLUMNS = %w(store_id)
+
++ search trong html_content  ====OK (modal dialog form)
+
+        if LIKE_SEARCH_COLUMNS.include?(k.to_sym) && v.size > 0
+
+          ds = ds.filter(Sequel.like(k.to_sym, "%#{v}%"))
+
+        end
+
+        if EQUAL_SEARCH_COLUMNS.include?(k) && v.size > 0
+
+          ds = ds.filter(k.to_sym => v)
+
+        end
+
+
+
++ Trong html_content/new.erb
+
+<%= {:error => 'danger', :warning => 'warning', :success => 'success', :notice => 'info'}  (class -> mapping)
+
+
+<%= f.submit pat(:continue), :class => 'btn btn-default', :name => 'continue', :value => pat(:confirm) %>
+
++ <%= f.submit pat(:continue), :class => 'btn btn-default', :name => 'continue', :value => pat(:confirm) %> value = よろしいですか？
+
+
+
+html_contents/new.erb
+
+ + <% form_for :html_content, url(:html_contents, :confirm), :class => 'form-horizontal' do |f| %> url->action, f = form
+        <%= partial 'html_contents/form', :locals => { :f => f } %> :locals? 
+	
+	{:variable => "aaaa"}
+
+	{variable: "aaaa"}
+
++ _form partial
+
+<%= f.select :store_id, :options => store_options, :class => 'form-control input-xlarge input-with-feedback', :id => 'store_id' %>  store_options?? (Trong agency/admin_helper)
+
+
+http://padrinorb.com/guides/
+
+layout
+
+mount: ket noi
+
+:params => [:foo, :bar]
+
+:provides => :js
+
+:protect (custom conditon)
+
+self====
+
+partial 'photo/item', :object => @photo, :locals => { :foo => 'bar' }
+
+partial 'photo/item', :collection => @photos
+
+=============================================================
+
+content
+store_push_notification 1
+
+=============================================================
+
+特典(とくてん): ưu đãi
+獲得(かくとく): gặt hái được (sau quá trình cố gắng, nỗ lực), sự thu được, kiếm được
+開催(かいさい): tổ chức
+受講(じゅこう):
+促進(そくしん): xúc tiến
+
+2020/03/19
+
++ test 1668
++ teamviewer / ultraview
++ Build app local
+var API_SERVER_URL = "http://	192.168.0.:3000/"
+
++ cordova platform ls
++ build tu may minh len con dien thoai xin xo
+
+padrino s -h ipmayem;
+adb devices
+
+Platform 28
+SDK Platform Tools 28.0.1
+SDK Build Tools 28.0.3
+
